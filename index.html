@@ -49,6 +49,8 @@ body.dark .checker{background:#111;border-color:#222}
 .search-btn{width:100%;height:48px;border:0;border-radius:12px;background:#000;color:#fff;font-size:15px;font-weight:800;margin-top:12px}
 .result{display:none;margin-top:15px;padding:15px;border-radius:12px;background:#f2f2f2;font-size:14px}
 body.dark .result{background:#222}
+.info-box{background:#f8f8f8;border:1px solid #e5e5e5;border-radius:20px;padding:20px;margin-top:24px;text-align:left}
+body.dark .info-box{background:#111;border-color:#222}
 </style>
 </head>
 <body>
@@ -80,6 +82,22 @@ body.dark .result{background:#222}
         <button class="category" onclick="filterMidman('verified',this)">MIDMAN <span id="verifiedCount">(0)</span></button>
     </div>
     <div id="midmanList"></div>
+
+    <div class="info-box">
+      <h3 style="font-size:16px;margin-bottom:10px">ℹ️ INFO MIDMAN</h3>
+      <p style="font-size:13px;line-height:1.7;color:#777">
+      <b style="color:#111">1. Buyer bayar dekat Midman</b><br>
+      Buyer transfer duit dekat Midman dulu, bukan dekat Seller.<br><br>
+      <b style="color:#111">2. Seller bagi barang / akaun</b><br>
+      Lepas Midman confirm duit masuk, Seller baru bagi barang.<br><br>
+      <b style="color:#111">3. Buyer confirm dapat</b><br>
+      Buyer check barang ok, bagitau Midman.<br><br>
+      <b style="color:#111">4. Midman release duit dekat Seller</b><br>
+      Tolak fee midman, baki Midman transfer dekat Seller.<br><br>
+      ⚠️ <b>Jangan deal luar Midman.</b> Kalau kena scam sebab deal direct, kami tak tanggung.<br><br>
+      📞 <b>Sentiasa semak nombor dalam website ni sahaja.</b> Scammer suka menyamar jadi Midman.
+      </p>
+    </div>
 </section>
 
 <section id="scammerPage" class="scammer-section">
@@ -111,18 +129,28 @@ body.dark .result{background:#222}
 </section>
 </main>
 
-<button class="float-btn" onclick="alert('Tambah Midman')">+</button>
+<button class="float-btn" onclick="window.open('https://wa.me/601161228654')">+</button>
 
 <script>
 const midmans = [
-    {name:"MID IPANZZ",desc:"Trusted Midman Malaysia",verified:true,initial:"M",whatsapp:"60123456789"},
-    {name:"MIDMAN KAITO",desc:"Trusted Midman Malaysia",verified:true,initial:"K",whatsapp:"60123456789"},
-    {name:"MID KUSA",desc:"Trusted Midman Malaysia",verified:true,initial:"K",whatsapp:"60123456789"},
-    {name:"MID LEX",desc:"Trusted Midman Malaysia",verified:true,initial:"L",whatsapp:"60123456789"},
-    {name:"MID MANZ",desc:"Trusted Midman Malaysia",verified:true,initial:"M",whatsapp:"60123456789"},
-    {name:"AJIMIXSTORE",desc:"Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"60123456789"},
-    {name:"KEYZZ GAMING",desc:"Trusted Midman Malaysia",verified:true,initial:"K",whatsapp:"60123456789"},
-    {name:"MID GWEN",desc:"Trusted Midman Malaysia",verified:true,initial:"G",whatsapp:"60123456789"}
+    {name:"MIDMAN FAHIM",desc:"011-61228654 • Trusted Midman Malaysia",verified:true,initial:"F",whatsapp:"601161228654"},
+    {name:"BANI OJAN",desc:"016-2419670 • Trusted Midman Malaysia",verified:true,initial:"B",whatsapp:"60162419670"},
+    {name:"MID IPANZZ",desc:"017-5970694 • Trusted Midman Malaysia",verified:true,initial:"M",whatsapp:"60175970694"},
+    {name:"MID IPANZZ (BACKUP)",desc:"011-11652080 • Trusted Midman Malaysia",verified:true,initial:"M",whatsapp:"601111652080"},
+    {name:"MIDMAN KAITO",desc:"011-39740407 • Trusted Midman Malaysia",verified:true,initial:"K",whatsapp:"601139740407"},
+    {name:"MID KUSA",desc:"011-70130314 • Trusted Midman Malaysia",verified:true,initial:"K",whatsapp:"601170130314"},
+    {name:"MID LEX",desc:"016-6105139 • Trusted Midman Malaysia",verified:true,initial:"L",whatsapp:"60166105139"},
+    {name:"MID EPOL",desc:"013-7314591 • Trusted Midman Malaysia",verified:true,initial:"E",whatsapp:"60137314591"},
+    {name:"MID EPOL (BACKUP)",desc:"010-5491599 • Trusted Midman Malaysia",verified:true,initial:"E",whatsapp:"60105491599"},
+    {name:"MIDMAN AMIRA",desc:"011-73807270 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"601173807270"},
+    {name:"AJIMIXSTORE",desc:"018-3808201 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"60183808201"},
+    {name:"KEYZZ GAMING",desc:"011-62626736 • Trusted Midman Malaysia",verified:true,initial:"K",whatsapp:"601162626736"},
+    {name:"MIDMAN ANOS 1",desc:"011-61324347 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"601161324347"},
+    {name:"MIDMAN ANOS 2",desc:"011-51228900 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"601151228900"},
+    {name:"MIDMAN MILO (PAGI)",desc:"018-4035510 • Trusted Midman Malaysia",verified:true,initial:"M",whatsapp:"60184035510"},
+    {name:"MIDMAN MILO (MALAM)",desc:"018-7905510 • Trusted Midman Malaysia",verified:true,initial:"M",whatsapp:"60187905510"},
+    {name:"SLRMYSHOP.COM",desc:"011-36871190 • Trusted Midman Malaysia",verified:true,initial:"S",whatsapp:"601136871190"},
+    {name:"MIDMAN AASHOP",desc:"017-9981705 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"60179981705"}
 ];
 const scammers = [{name:"Contoh Scammer",phone:"0100000",bank:"Tidak dinyatakan",status:"Dalam siasatan"}];
 function loadMidman(list = midmans){
