@@ -3,32 +3,284 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MIDMAN RASMI</title>
+<title>MIDMAN TRUSTED MALAYSIA</title>
 <style>
-body{margin:0;font-family:Arial;background:#0f0f0f;color:white;text-align:center}
-header{padding:60px 20px;background:linear-gradient(135deg,#000,#333)}
-h1{font-size:42px;margin:0}
-p{color:#ccc}
-.btn{display:inline-block;margin:10px;padding:15px 25px;background:#25D366;color:white;text-decoration:none;border-radius:30px;font-weight:bold}
-.btn2{background:#1877F2}
-.card{background:#1c1c1c;margin:20px;padding:20px;border-radius:15px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial,sans-serif}
+body{background:#fff;color:#111;padding-bottom:80px}
+body.dark{background:#0a0a0a;color:#fff}
+.top{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;position:sticky;top:0;background:#fff;z-index:99}
+body.dark .top{background:#111}
+.logo{font-size:22px;font-weight:900;letter-spacing:-.5px;line-height:1.1}
+.top-right{display:flex;gap:8px}
+.icon-btn{width:44px;height:40px;border:1px solid #ddd;background:#fff;border-radius:999px;font-size:18px;display:flex;align-items:center;justify-content:center}
+body.dark .icon-btn{background:#222;border-color:#333}
+.icon-btn.black{background:#000;color:#fff;border-color:#000}
+body.dark .icon-btn.black{background:#fff;color:#000}
+.tabs{height:62px;display:flex;gap:6px;padding:8px 10px;background:#fff;position:sticky;top:68px;z-index:98;overflow-x:auto}
+body.dark .tabs{background:#111}
+.tabs button{flex:1;min-width:70px;border:0;border-radius:12px;background:transparent;font-weight:800;font-size:12px;color:#888;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;position:relative}
+.tabs button.active{background:#000;color:#fff}
+.tabs button .dot{position:absolute;top:5px;right:16px;background:#ed101d;color:#fff;font-size:10px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.wrap{max-width:680px;margin:auto;padding:22px 16px}
+.badge-hitam{display:inline-flex;gap:6px;background:#000;color:#fff;padding:8px 16px;border-radius:999px;font-size:12px;font-weight:800}
+h1{text-align:center;font-size:32px;line-height:1.15;font-weight:900;letter-spacing:-1px;margin:14px 0 8px}
+.sub{text-align:center;color:#888;font-size:14px}
+.search{margin:22px 0 14px;height:56px;background:#f6f6f6;border:1px solid #e5e5e5;border-radius:16px;display:flex;align-items:center;gap:10px;padding:0 16px}
+body.dark .search{background:#1a1a1a;border-color:#222}
+.search input{border:0;outline:0;background:transparent;width:100%;font-size:15px;color:inherit}
+.filter{display:flex;gap:10px;margin-bottom:20px}
+.filter button{flex:1;height:44px;border:1px solid #e5e5e5;background:#f7f7f7;border-radius:12px;font-weight:800;font-size:14px;color:#666}
+.filter button.active{background:#000;color:#fff}
+.card{display:flex;gap:14px;background:#f8f8f8;border:1px solid #e8e8e8;border-radius:20px;padding:16px;margin-bottom:14px;align-items:center}
+body.dark .card{background:#161616;border-color:#222}
+.avatar{width:60px;height:60px;border-radius:14px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;flex-shrink:0;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.info{flex:1;min-width:0}
+.name{font-weight:900;font-size:16px;display:flex;align-items:center;gap:6px;text-transform:uppercase}
+.tick{width:16px;height:16px;background:#000;color:#fff;border-radius:50%;font-size:10px;display:inline-flex;align-items:center;justify-content:center}
+body.dark .tick{background:#fff;color:#000}
+.desc{color:#888;font-size:12px;margin:5px 0 10px}
+.btns{display:flex;gap:8px}
+.hubungi{flex:1;height:40px;border:0;background:#000;color:#fff;border-radius:12px;font-weight:800;font-size:14px}
+.dotbtn{width:40px;height:40px;border:1px solid #ddd;background:#fff;border-radius:12px;font-size:20px}
+body.dark .dotbtn{background:#222;border-color:#333}
+.checker{border:1px solid #ddd;border-radius:20px;padding:20px;background:#fff;text-align:center}
+body.dark .checker{background:#161616;border-color:#222}
+.checker input{width:100%;height:48px;border:1px solid #ddd;border-radius:12px;padding:0 14px;font-size:15px;margin-top:10px;outline:none;background:transparent;color:inherit}
+.checker button{width:100%;height:48px;border:0;background:#000;color:#fff;border-radius:12px;font-weight:800;margin-top:12px}
+.result{display:none;margin-top:14px;background:#f2f2f2;padding:14px;border-radius:12px;font-size:14px;text-align:left}
+.hide{display:none}
+.scam-detail{background:#fff;border:1px solid #e8e8e8;border-radius:20px;padding:18px;margin-bottom:14px}
+body.dark .scam-detail{background:#161616;border-color:#222}
+.scam-label{font-size:11px;letter-spacing:1px;color:#999;font-weight:800;margin-top:14px}
+.scam-val{font-size:15px;font-weight:800;margin-top:4px;display:flex;justify-content:space-between;align-items:center}
+.copy{width:32px;height:32px;border:1px solid #ddd;background:#fff;border-radius:8px}
+.info-box{border:1px solid #e8e8e8;border-radius:20px;padding:20px;background:#fff;margin-top:20px}
+body.dark .info-box{background:#161616;border-color:#222}
+.info-title{font-size:17px;font-weight:900;margin:26px 0 14px}
+.maksud{border-left:3px solid #ff9d00;padding-left:16px}
+.maksud p{font-size:15px;line-height:1.65;color:#555}
+.fungsi-card{display:flex;gap:12px;background:#f8f8f8;border:1px solid #eee;border-radius:16px;padding:16px;margin-bottom:12px}
+body.dark .fungsi-card{background:#1a1a1a;border-color:#222}
+.fungsi-card .check{font-size:22px;color:#666;font-weight:900}
+.ringkasan{background:#000;color:#fff;border-radius:20px;padding:20px;margin-top:20px}
+.ringkasan h3{color:#ffcc00;font-size:16px;margin-bottom:14px}
+.ringkasan p{font-size:15px;line-height:1.6;margin-bottom:6px}
+.hijau{background:#e6f9ed;border-radius:20px;padding:20px;margin-top:16px}
+.hijau p{font-size:15px;line-height:1.65;color:#1a5c2e}
+.btn-hitam{width:100%;height:56px;background:#000;color:#fff;border:0;border-radius:16px;font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;margin-top:18px}
+.btn-putih{width:100%;height:52px;background:#fff;color:#111;border:1px solid #ddd;border-radius:16px;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px}
+body.dark .btn-putih{background:#1a1a1a;color:#fff;border-color:#333}
+.peringatan{display:flex;gap:14px;background:#fbfbfb;border:1px solid #eee;border-radius:20px;padding:20px;margin-top:20px}
+body.dark .peringatan{background:#161616;border-color:#222}
+.peringatan p{font-size:14px;line-height:1.6;color:#777;margin-top:6px}
+.lapor-hero{background:#0a1a33;color:#fff;margin:-22px -16px 0;padding:32px 22px 28px}
+.lapor-hero h2{font-size:30px;line-height:1.15;font-weight:900}
+.lapor-hero p{font-size:15px;line-height:1.6;color:#cbd5e1;margin-top:12px}
+.lapor-card{background:#fff;border:1px solid #e8e8e8;border-radius:20px;padding:22px;margin-top:20px}
+body.dark .lapor-card{background:#161616;border-color:#222}
+.lapor-card label{font-size:14px;font-weight:800;display:block;margin:18px 0 8px}
+.lapor-card label:first-child{margin-top:0}
+.lapor-card input,.lapor-card select,.lapor-card textarea{width:100%;height:52px;border:1px solid #ddd;border-radius:12px;padding:0 14px;font-size:15px;outline:none;background:#fff;color:#111}
+body.dark .lapor-card input,body.dark .lapor-card select,body.dark .lapor-card textarea{background:#1a1a1a;border-color:#333;color:#fff}
+.lapor-card textarea{height:110px;padding:14px;resize:vertical}
+.lapor-btn{width:100%;height:54px;background:#0a1a33;color:#fff;border:0;border-radius:12px;font-weight:900;font-size:15px;margin-top:20px}
+.lapor-success{display:none;background:#e6f9ed;border-radius:14px;padding:16px;text-align:center;color:#0a7a2e;font-weight:800;margin-top:16px}
+.lapor-note{font-size:12px;color:#888;text-align:center;margin-top:12px;line-height:1.5}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:300;display:none}
+.overlay.show{display:block}
+.semak-popup{position:fixed;left:12px;right:12px;top:50%;transform:translateY(-50%);background:#fff;border-radius:20px;padding:22px;z-index:301;display:none;max-width:480px;margin:auto;max-height:85vh;overflow-y:auto}
+body.dark .semak-popup{background:#1a1a1a}
+.semak-popup.show{display:block}
+.semak-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.semak-head b{font-size:14px;letter-spacing:.5px}
+.semak-head span{font-size:20px;color:#999}
+.semak-box{border:1px solid #333;padding:20px;text-align:center}
+.semak-box .sistem{border:1px solid #333;padding:10px 14px;font-size:12px;font-weight:800;letter-spacing:1px;display:flex;align-items:center;justify-content:center;gap:8px}
+.semak-box h2{font-size:26px;line-height:1.15;margin:16px 0 8px}
+.semak-box p{font-size:13px;color:#888;line-height:1.5}
+.semak-box input{width:100%;height:52px;border:1px solid #999;padding:0 14px;font-size:15px;margin-top:16px;outline:none;background:transparent;color:inherit}
+.semak-box .semak-btn{width:100%;height:52px;background:#000;color:#fff;border:0;font-weight:900;font-size:14px;letter-spacing:1px;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:8px}
+.semak-res{display:none;margin-top:14px;padding:14px;border-radius:12px;font-size:14px;line-height:1.6;text-align:left}
+.semak-res.ok{background:#e6f9ed;color:#0a7a2e}
+.semak-res.no{background:#ffe6e6;color:#c00}
+.nav-fab{position:fixed;right:18px;bottom:20px;width:56px;height:56px;border:0;background:#000;color:#fff;border-radius:50%;font-size:24px;z-index:200}
+.nav-popup{position:fixed;left:12px;right:12px;bottom:12px;background:#fff;border:1px solid #eee;border-radius:24px;padding:20px;z-index:201;display:none;max-width:480px;margin:auto}
+body.dark .nav-popup{background:#1a1a1a;border-color:#333}
+.nav-popup.show{display:block}
+.nav-title{font-size:13px;font-weight:900;letter-spacing:1px;color:#666;margin-bottom:14px}
+.nav-grid{display:flex;gap:10px}
+.nav-card{flex:1;border-radius:16px;padding:16px;text-align:center;border:1px solid #eee}
+.nav-card.white{background:#fff}
+.nav-card.black{background:#000;color:#fff;position:relative}
+body.dark .nav-card.white{background:#222;border-color:#333}
+.nav-card .ic{width:40px;height:40px;border:1px solid #ddd;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;background:#fff}
+.nav-card.black .ic{background:#111;border-color:#333}
+.nav-item{display:flex;gap:12px;align-items:center;background:#f8f8f8;border-radius:16px;padding:14px;margin-top:12px}
+body.dark .nav-item{background:#222}
+.nav-item .ic2{width:40px;height:40px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+body.dark .nav-item .ic2{background:#333}
+.konfig{font-size:12px;font-weight:900;letter-spacing:1px;color:#666;margin:18px 0 10px}
+.konfig-grid{display:flex;gap:10px}
+.konfig-card{flex:1;background:#f8f8f8;border-radius:16px;padding:14px;display:flex;gap:10px;align-items:center}
+body.dark .konfig-card{background:#222}
+.footer{text-align:center;color:#aaa;font-size:12px;line-height:1.7;margin-top:28px;border-top:1px solid #eee;padding-top:20px}
+.footer b{color:#111}
 </style>
 </head>
 <body>
-<header>
-<h1>MIDMAN RASMI</h1>
-<p>Senarai Midman Trusted Malaysia</p>
-<a class="btn" href="https://wa.me/60175970694">WhatsApp Admin</a>
-<a class="btn btn2" href="https://t.me/MID_IPANZZ">Join Telegram</a>
-</header>
-<div class="card">
-<h2>Kenapa Pilih Kami?</h2>
-<p>✅ Midman Verified<br>✅ Fast Response<br>✅ Selamat & Dipercayai</p>
+
+<div class="top"><div class="logo">MIDMAN TRUSTED<br>MALAYSIA</div><div class="top-right"><button class="icon-btn black" onclick="openSemak()">🛡️</button><button class="icon-btn" onclick="toggleDark()">🌙</button></div></div>
+
+<div class="tabs">
+<button id="tab-midman" class="active" onclick="showPage('midman')">🛡️<span>MIDMAN</span></button>
+<button id="tab-scammer" onclick="showPage('scammer')">🛡️<span>SCAMMER</span><span class="dot">7</span></button>
+<button id="tab-info" onclick="showPage('info')">❓<span>INFO</span></button>
+<button id="tab-lapor" onclick="showPage('lapor')">🚨<span>LAPOR</span></button>
 </div>
-<div class="card">
-<h2>Senarai Midman</h2>
-<p>Coming Soon - Akan dikemaskini</p>
+
+<div class="wrap">
+<div id="page-midman">
+<h1>MIDMAN BERDAFTAR</h1>
+<p class="sub">Sistem transaksi selamat & dipercayai.</p>
+<div class="checker" style="margin-top:20px"><b>🛡️ SEMAK NOMBOR TELEFON MIDMAN</b><p style="font-size:13px;color:#888;margin-top:6px">Masukkan nombor WhatsApp untuk sahkan rekod</p><button onclick="openSemak()">🔍 SEMAK NOMBOR SEKARANG</button></div>
+<div class="search">🔍 <input id="cari" placeholder="Cari Midman..." oninput="render()"></div>
+<div class="filter"><button class="active" onclick="setFilter('all',this)">SEMUA <span id="total">(18)</span></button><button onclick="setFilter('ver',this)">MIDMAN <span id="ver">(18)</span></button></div>
+<div id="list"></div>
+<div class="footer"><b>MIDMAN TRUSTED MALAYSIA • PLATFORM KESELAMATAN & TRANSAKSI DIGITAL</b><br>Direktori Midman • Info Scammer • Panduan Midman © 2026</div>
 </div>
-<p style="padding:20px;color:#888">© 2026 MIDMAN RASMI</p>
+
+<div id="page-scammer" class="hide">
+<div style="text-align:center"><span class="badge-hitam" style="background:#ed101d">🚨 PENGKALAN DATA</span></div>
+<h1>SENARAI HITAM<br>SCAMMER</h1>
+<p class="sub">Semak sebelum deal. Jangan transfer kalau nama ada di sini.</p>
+<div class="checker" style="margin-top:20px"><b>🔍 SEMAK NOMBOR / BANK</b><input id="scamInput" placeholder="cth: 016-349 7561"><button onclick="checkScam()">🔍 SEMAK REKOD</button><div id="scamRes" class="result"></div></div>
+<div id="scamList" style="margin-top:16px"></div>
+</div>
+
+<div id="page-info" class="hide">
+<div style="text-align:center"><span class="badge-hitam">❓ PANDUAN & INFO KESELAMATAN</span></div>
+<h1>APA ITU MIDMAN & APA<br>FUNGSINYA?</h1>
+<p class="sub">Ketahui peranan orang tengah (Middleman) dalam melindungi transaksi jual beli akaun game, item digital, dan topup anda.</p>
+<div class="info-box"><p>Bagi anda yang selalu terlibat dalam jual beli akaun game, topup, atau item digital, mungkin pernah dengar tentang <b>Midman (Middleman)</b>.</p></div>
+<div class="info-title">📌 MAKSUD MIDMAN:</div>
+<div class="maksud"><p>Midman ialah <b>orang tengah</b> yang menjadi pihak ketiga dalam proses jual beli.</p></div>
+<div class="info-title">📌 FUNGSI UTAMA MIDMAN:</div>
+<div class="fungsi-card"><span class="check">✔️</span><p><b>Menjamin keselamatan kedua-dua pihak</b><br>– penjual dan pembeli.</p></div>
+<div class="fungsi-card"><span class="check">✔️</span><p><b>Mengurangkan risiko ditipu.</b></p></div>
+<div class="fungsi-card"><span class="check">✔️</span><p><b>Bertindak sebagai penghubung sah</b> – duit ditahan oleh midman sementara.</p></div>
+<div class="ringkasan"><h3>📌 RINGKASNYA:</h3><p>➡️ Pembeli terjamin dapat barang.</p><p>➡️ Penjual pula pasti dapat duit.</p></div>
+<div class="hijau"><p>Dengan adanya midman, urusan jual beli digital anda lebih terjamin, telus, dan bebas daripada risiko penipuan.</p></div>
+<button class="btn-hitam" onclick="showPage('midman')"><span>🛡️ LIHAT SENARAI MIDMAN BERDAFTAR</span><span>→</span></button>
+<button class="btn-putih" onclick="salinPanduan()">📋 SALIN TEKS PANDUAN</button>
+<div class="peringatan"><span>🔒</span><div><b>PERINGATAN PENTING MIDMAN TRUSTED</b><p>Sentiasa pastikan nombor telefon atau akaun Midman yang anda gunakan adalah tepat dan sah berdaftar di direktori Midman Trusted sebelum memulakan sebarang pembayaran.</p></div></div>
+</div>
+
+<div id="page-lapor" class="hide">
+<div class="lapor-hero"><h2>Hantar laporan penipuan</h2><p>Isi maklumat di bawah dan lampirkan bukti. Laporan dihantar terus kepada admin untuk disemak sebelum disenaraikan.</p></div>
+<div class="lapor-card">
+<label>Jenis laporan</label>
+<select id="jenisLapor"><option value="">Pilih jenis</option><option>Scammer / Penipuan</option><option>Fake Midman / Clone</option><option>Tidak bayar / Lari duit</option><option>Akaun curi / Hack</option><option>Lain-lain</option></select>
+<label>Nama / ID pihak yang menipu</label>
+<input id="namaLapor" placeholder="Nama, username atau ID">
+<label>Nombor telefon</label>
+<input id="telLapor" placeholder="60123456789">
+<label>Akaun bank / e-wallet</label>
+<input id="bankLapor" placeholder="Nama bank dan nombor akaun">
+<label>Kronologi / Bukti</label>
+<textarea id="buktiLapor" placeholder="Cerita apa yang jadi... Bila, berapa kerugian, ada screenshot?"></textarea>
+<label>Nombor WhatsApp anda</label>
+<input id="waLapor" placeholder="60123456789">
+<button class="lapor-btn" onclick="hantarLapor()">🚨 HANTAR LAPORAN →</button>
+<div id="laporSuccess" class="lapor-success">✅ Laporan dihantar! Admin akan semak & hubungi anda.</div>
+<p class="lapor-note">Laporan anda adalah sulit. Jangan kongsi OTP / password dengan sesiapa.</p>
+</div>
+</div>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeAllPopup()"></div>
+<div class="semak-popup" id="semakPopup">
+<div class="semak-head"><b>SISTEM SEMAKAN NOMBOR WHATSAPP</b><span onclick="closeAllPopup()">✕</span></div>
+<div class="semak-box"><div class="sistem">🛡️ SISTEM SEMAKAN NOMBOR RASMI MALAYSIA</div><h2>SEMAK NOMBOR<br>TELEFON SELLER</h2><p>Masukkan nombor WhatsApp atau nama peniaga untuk mengesahkan rekod pendaftaran rasmi.</p><input id="semakInput" placeholder="Contoh: 012-345 6789 atau nama"><button class="semak-btn" onclick="semakStatus()">SEMAK STATUS →</button><div id="semakRes" class="semak-res"></div></div>
+</div>
+
+<div id="navPopup" class="nav-popup">
+<div class="nav-title">🧭 NAVIGASI PANTAS</div>
+<div class="nav-grid">
+<div class="nav-card white" onclick="showPage('midman');closeNav()"><div class="ic">🛡️</div><b>Direktori Midman</b><br><small>Disahkan</small></div>
+<div class="nav-card black" onclick="showPage('scammer');closeNav()"><div class="ic">🛡️</div><b>Info Scammer</b><br><small>Senarai Hitam</small></div>
+</div>
+<div class="nav-item" onclick="showPage('info');closeNav()"><div class="ic2">❓</div><div><b>Info Midman</b><br><small>Apa itu Midman?</small></div></div>
+<div class="nav-item" onclick="showPage('lapor');closeNav()"><div class="ic2">🚨</div><div><b>Lapor Scammer</b><br><small>Hantar laporan</small></div></div>
+<div class="konfig">KONFIGURASI</div>
+<div class="konfig-grid">
+<div class="konfig-card" onclick="toggleDark()"><span>🌙</span><div><b>Dark Mode</b><br><small>Tukar tema</small></div></div>
+<div class="konfig-card" onclick="openSemak();closeNav()"><span>🔍</span><div><b>Semak Nombor</b><br><small>Verify midman</small></div></div>
+</div>
+</div>
+
+<button class="nav-fab" onclick="toggleNav()">☰</button>
+
+<script>
+let midmans = [
+{nama:"MIDMAN FAHIM",initial:"F",wa:"601161228654",desc:"Trusted Midman Malaysia",img:""},
+{nama:"BANI OJAN",initial:"B",wa:"60162419670",desc:"Trusted Midman Malaysia",img:""},
+{nama:"MID IPANZZ",initial:"M",wa:"60175970694",desc:"Trusted Midman Malaysia",img:""},
+{nama:"MID IPANZZ (BACKUP)",initial:"M",wa:"601111652080",desc:"Trusted Midman Malaysia",img:""},
+{nama:"MIDMAN KAITO",initial:"K",wa:"601139740407",desc:"Trusted Midman Malaysia",img:""},
+{nama:"MID KUSA",initial:"K",wa:"601170130314",desc:"Trusted Midman Malaysia",img:""},
+{nama:"MID LEX",initial:"L",wa:"60166105139",desc:"Trusted Midman Malaysia",img:""},
+{nama:"MID EPOL",initial:"E",wa:"60137314591",desc:"Trusted Midman Malaysia",img:""},
+{nama:"MID EPOL (BACKUP)",initial:"E",wa:"60105491599",desc:"Trusted Midman Malaysia",img:""},
+{nama:"MIDMAN AMIRA",initial:"A",wa:"601173807270",desc:"Trusted Midman Malaysia",img:""},
+{nama:"AJIMIXSTORE",initial:"A",wa:"60183808201",desc:"Trusted Midman Malaysia",img:""},
+{nama:"KEYZZ GAMING",initial:"K",wa:"601162626736",desc:"Trusted Midman Malaysia",img:""},
+{nama:"MIDMAN ANOS 1",initial:"A",wa:"601161324347",desc:"Trusted Midman Malaysia",img:""},
+{nama:"MIDMAN ANOS 2",initial:"A",wa:"601151228900",desc:"Trusted Midman Malaysia",img:""},
+{nama:"MIDMAN MILO (PAGI)",initial:"M",wa:"60184035510",desc:"Trusted Midman Malaysia",img:""},
+{nama:"MIDMAN MILO (MALAM)",initial:"M",wa:"60187905510",desc:"Trusted Midman Malaysia",img:""},
+{nama:"SLRMYSHOP.COM",initial:"S",wa:"601136871190",desc:"Trusted Midman Malaysia",img:""},
+{nama:"MIDMAN AASHOP",initial:"A",wa:"60179981705",desc:"Trusted Midman Malaysia",img:""}
+];
+let scammers = [
+{nama:"SCAMMER 1",tel:"016-349 7561",bank:"Maybank - 123456",kes:"Scam jual akaun"},
+{nama:"SCAMMER 2",tel:"011-0000000",bank:"- ",kes:"Fake midman"},
+{nama:"SCAMMER 3",tel:"012-0000000",bank:"- ",kes:"Tidak bayar"},
+{nama:"SCAMMER 4",tel:"013-0000000",bank:"- ",kes:"Akaun curi"},
+{nama:"SCAMMER 5",tel:"014-0000000",bank:"- ",kes:"Scam topup"},
+{nama:"SCAMMER 6",tel:"015-0000000",bank:"- ",kes:"Scam"},
+{nama:"SCAMMER 7",tel:"017-0000000",bank:"- ",kes:"Scam"}
+];
+let (filter)='all';
+function render(){
+let q=document.getElementById('cari').value.toLowerCase();
+let list=midmans.filter(m=>m.nama.toLowerCase().includes(q));
+document.getElementById('list').innerHTML=list.map(m=>`<div class="card"><div class="avatar">${m.img?`<img src="${m.img}">`:m.initial}</div><div class="info"><div class="name">${m.nama} <span class="tick">✓</span></div><div class="desc">${m.desc}</div><div class="btns"><button class="hubungi" onclick="window.open('https://wa.me/${m.wa}')">HUBUNGI</button><button class="dotbtn">⋮</button></div></div></div>`).join('');
+document.getElementById('total').innerText='('+midmans.length+')';
+document.getElementById('ver').innerText='('+midmans.length+')';
+}
+function renderScam(){
+document.getElementById('scamList').innerHTML=scammers.map(s=>`<div class="scam-detail"><div style="font-weight:900;font-size:16px">🚨 ${s.nama}</div><div class="scam-label">NOMBOR TELEFON</div><div class="scam-val">${s.tel} <button class="copy" onclick="navigator.clipboard.writeText('${s.tel}')">📋</button></div><div class="scam-label">BANK / E-WALLET</div><div class="scam-val">${s.bank}</div><div class="scam-label">KES</div><div class="scam-val">${s.kes}</div></div>`).join('');
+}
+function showPage(){p}{
+['midman','scammer','info','lapor'].forEach(x=>document.getElementById('page-'+x).classList.toggle('hide',x!==p));
+document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+let map={midman:'tab-midman',scammer:'tab-scammer',info:'tab-info',lapor:'tab-lapor'};
+document.getElementById(map[p]).classList.add('active');
+if(p=='scammer') renderScam();
+window.scrollTo(0,0);
+}
+function setFilter(){f,btn}{filter=f;document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render();}
+function toggleDark(){document.body.classList.toggle('dark');}
+function openSemak(){document.getElementById('overlay').classList.add('show');document.getElementById('semakPopup').classList.add('show');}
+function closeAllPopup(){document.getElementById('overlay').classList.remove('show');document.getElementById('semakPopup').classList.remove('show');document.getElementById('navPopup').classList.remove('show');}
+function toggleNav(){document.getElementById('navPopup').classList.toggle('show');}
+function closeNav(){document.getElementById('navPopup').classList.remove('show');}
+function semakStatus(){let v=document.getElementById('semakInput').value.trim().toLowerCase();let res=document.getElementById('semakRes');let f=midmans.find(m=>m.wa.includes(v.replace(/[^0-9]/g,''))||m.nama.toLowerCase().includes(v));let s=scammers.find(x=>x.tel.includes(v));res.style.display='block';if(s){res.className='semak-res no';res.innerHTML='🚨 <b>AMARAN - SCAMMER</b><br>'+s.nama+'<br>'+s.tel;}else if(f){res.className='semak-res ok';res.innerHTML='✅ <b>SAH - MIDMAN BERDAFTAR</b><br>'+f.nama+'<br>'+f.wa;}else{res.className='semak-res no';res.innerHTML='❌ <b>TIADA REKOD</b><br>Nombor ni tak berdaftar. Hati-hati.';}}
+function checkScam(){let v=document.getElementById('scamInput').value.trim();let res=document.getElementById('scamRes');let f=scammers.find(s=>s.tel.includes(v)||s.nama.toLowerCase().includes(v.toLowerCase()));res.style.display='block';res.innerHTML=f?`🚨 <b>DITEMUI - ${f.nama}</b><br>Tel: ${f.tel}<br>Bank: ${f.bank}<br>Kes: ${f.kes}`:'✅ <b>BERSIH</b><br>Tiada rekod scammer untuk input ni.';}
+function hantarLapor(){document.getElementById('laporSuccess').style.display='block';}
+function salinPanduan(){let t='Midman ialah orang tengah yang menjadi pihak ketiga dalam proses jual beli. Pembeli terjamin dapat barang, penjual pasti dapat duit.';navigator.clipboard.writeText(t);alert('Teks panduan disalin!');}
+render();renderScam();
+</script>
 </body>
 </html>
