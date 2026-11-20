@@ -33,6 +33,7 @@ main{max-width:680px;margin:auto;padding:30px 20px 120px}
 .card{background:#f8f8f8;border:1px solid #e5e5e5;border-radius:20px;padding:16px;display:flex;align-items:center;gap:14px;margin-bottom:14px}
 body.dark .card{background:#111;border-color:#222}
 .avatar{width:60px;height:60px;border-radius:14px;background:#000;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:900}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
 .card-info{min-width:0;flex:1}
 .card-name{font-size:15px;font-weight:900;display:flex;align-items:center;gap:5px}
 .verified{width:16px;height:16px;border-radius:50%;background:#000;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
@@ -104,176 +105,137 @@ footer{text-align:center;padding:20px;font-size:11px;color:#999;line-height:1.6}
 </style>
 </head>
 <body>
-
 <header class="header">
-    <div class="logo">MIDMAN TRUSTED<br>MALAYSIA</div>
-    <button class="icon-btn" onclick="toggleDark()">🌙</button>
+<div class="logo">MIDMAN TRUSTED<br>MALAYSIA</div>
+<button class="icon-btn" onclick="toggleDark()">🌙</button>
 </header>
-
 <nav class="tabs">
-    <button class="tab active" id="tab-midman" onclick="showPage('midman',this)">🛡️ MIDMAN</button>
-    <button class="tab" id="tab-scammer" onclick="showPage('scammer',this)">🚨 SCAMMER <span id="scamCount">0</span></button>
-    <button class="tab" id="tab-mlbb" onclick="showPage('mlbb',this)">🎮 MLBB</button>
-    <button class="tab" id="tab-info" onclick="showPage('info',this)">❓ INFO</button>
+<button class="tab active" id="tab-midman" onclick="showPage('midman',this)">🛡️ MIDMAN</button>
+<button class="tab" id="tab-scammer" onclick="showPage('scammer',this)">🚨 SCAMMER <span id="scamCount">0</span></button>
+<button class="tab" id="tab-mlbb" onclick="showPage('mlbb',this)">🎮 MLBB</button>
+<button class="tab" id="tab-info" onclick="showPage('info',this)">❓ INFO</button>
 </nav>
-
 <main>
-<!-- MIDMAN -->
 <section id="midmanPage">
-    <div class="hero">
-        <div class="badge">🛡️ DIREKTORI DIPERCAYAI</div>
-        <h1>MIDMAN TRUSTED<br>MALAYSIA</h1>
-        <p class="subtext">Sistem transaksi selamat & direktori midman dipercayai.</p>
-    </div>
-    <div class="search-box">
-        <div class="search-icon">🔍</div>
-        <input id="midmanSearch" type="text" placeholder="Cari Midman..." oninput="searchMidman()">
-    </div>
-    <div class="categories">
-        <button class="category active" onclick="filterMidman('all',this)">SEMUA <span id="totalCount">(0)</span></button>
-        <button class="category" onclick="filterMidman('verified',this)">MIDMAN <span id="verifiedCount">(0)</span></button>
-    </div>
-    <div id="midmanList"></div>
-    <div class="info-card">
-      <h3 class="info-title">ℹ️ INFO MIDMAN</h3>
-      <p><b style="color:#111">1. Buyer bayar dekat Midman</b><br>Buyer transfer duit dekat Midman dulu, bukan dekat Seller.<br><br>
-      <b style="color:#111">2. Seller bagi barang / akaun</b><br>Lepas Midman confirm duit masuk, Seller baru bagi barang.<br><br>
-      <b style="color:#111">3. Buyer confirm dapat</b><br>Buyer check barang ok, bagitau Midman.<br><br>
-      <b style="color:#111">4. Midman release duit dekat Seller</b><br>Tolak fee midman, baki Midman transfer dekat Seller.<br><br>
-      ⚠️ <b>Jangan deal luar Midman.</b> Kalau kena scam sebab deal direct, kami tak tanggung.</p>
-    </div>
+<div class="hero">
+<div class="badge">🛡️ DIREKTORI DIPERCAYAI</div>
+<h1>MIDMAN TRUSTED<br>MALAYSIA</h1>
+<p class="subtext">Sistem transaksi selamat & direktori midman dipercayai.</p>
+</div>
+<div class="search-box"><div class="search-icon">🔍</div><input id="midmanSearch" type="text" placeholder="Cari Midman..." oninput="searchMidman()"></div>
+<div class="categories">
+<button class="category active" onclick="filterMidman('all',this)">SEMUA <span id="totalCount">(0)</span></button>
+<button class="category" onclick="filterMidman('verified',this)">MIDMAN <span id="verifiedCount">(0)</span></button>
+</div>
+<div id="midmanList"></div>
+<div class="info-card">
+<h3 class="info-title">ℹ️ INFO MIDMAN</h3>
+<p><b style="color:#111">1. Buyer bayar dekat Midman</b><br>Buyer transfer duit dekat Midman dulu, bukan dekat Seller.<br><br>
+<b style="color:#111">2. Seller bagi barang / akaun</b><br>Lepas Midman confirm duit masuk, Seller baru bagi barang.<br><br>
+<b style="color:#111">3. Buyer confirm dapat</b><br>Buyer check barang ok, bagitau Midman.<br><br>
+<b style="color:#111">4. Midman release duit dekat Seller</b><br>Tolak fee midman, baki Midman transfer dekat Seller.<br><br>
+⚠️ <b>Jangan deal luar Midman.</b> Kalau kena scam sebab deal direct, kami tak tanggung.</p>
+</div>
 </section>
-
-<!-- SCAMMER -->
 <section id="scammerPage" class="scammer-section">
-    <div class="hero">
-        <div class="badge" style="background:#ed101d">🚨 PENGKALAN DATA</div>
-        <h1>SENARAI HITAM<br>SCAMMER</h1>
-        <p class="subtext">Semak nombor / bank sebelum deal.</p>
-    </div>
-    <div class="checker">
-        <h2 style="font-size:18px;margin-bottom:8px">🔍 SEMAK NOMBOR / BANK</h2>
-        <input id="scammerSearch" class="check-input" placeholder="cth: 011-3982 1092">
-        <button class="search-btn" onclick="checkScammer()">🔍 SEMAK REKOD</button>
-        <div id="scammerResult" class="result"></div>
-    </div>
-    <br>
-    <div id="scammerList"></div>
+<div class="hero">
+<div class="badge" style="background:#ed101d">🚨 PENGKALAN DATA</div>
+<h1>SENARAI HITAM<br>SCAMMER</h1>
+<p class="subtext">Semak nombor / bank sebelum deal.</p>
+</div>
+<div class="checker">
+<h2 style="font-size:18px;margin-bottom:8px">🔍 SEMAK NOMBOR / BANK</h2>
+<input id="scammerSearch" class="check-input" placeholder="cth: 011-3982 1092">
+<button class="search-btn" onclick="checkScammer()">🔍 SEMAK REKOD</button>
+<div id="scammerResult" class="result"></div>
+</div>
+<br>
+<div id="scammerList"></div>
 </section>
-
-<!-- MLBB -->
 <section id="mlbbPage" class="mlbb-section">
-    <div class="hero">
-        <div class="badge">🎮 SEMAK MLBB</div>
-        <h1>SEMAK REGION<br>& DOUBLE DIAMOND</h1>
-        <p class="subtext">Semak akaun MLBB sebelum beli / topup.</p>
-    </div>
-    <div class="checker">
-        <h2 style="font-size:18px;margin-bottom:8px">🎮 SEMAK AKAUN MLBB</h2>
-        <input id="mlbbId" class="check-input" placeholder="Contoh: 12345678 (2170)">
-        <button class="search-btn" onclick="checkMLBB()">🔍 SEMAK</button>
-        <div id="mlbbResult" class="result"></div>
-    </div>
+<div class="hero">
+<div class="badge">🎮 SEMAK MLBB</div>
+<h1>SEMAK REGION<br>& DOUBLE DIAMOND</h1>
+<p class="subtext">Semak akaun MLBB sebelum beli / topup.</p>
+</div>
+<div class="checker">
+<h2 style="font-size:18px;margin-bottom:8px">🎮 SEMAK AKAUN MLBB</h2>
+<input id="mlbbId" class="check-input" placeholder="Contoh: 12345678 (2170)">
+<button class="search-btn" onclick="checkMLBB()">🔍 SEMAK</button>
+<div id="mlbbResult" class="result"></div>
+</div>
 </section>
-
-<!-- INFO -->
 <section id="infoPage" class="info-section">
-    <div class="hero">
-        <div class="badge">❓ PANDUAN & INFO KESELAMATAN</div>
-        <h1>APA ITU MIDMAN & APA FUNGSINYA?</h1>
-        <p class="subtext">Ketahui peranan orang tengah (Middleman) dalam melindungi transaksi jual beli akaun game, item digital, dan topup anda.</p>
-    </div>
-    <div class="info-card">
-      <p>Bagi anda yang selalu terlibat dalam jual beli akaun game, topup, atau item digital, mungkin pernah dengar tentang <b style="color:#111">Midman (Middleman)</b>.</p>
-    </div>
-    <div style="padding:0 4px">
-      <div class="info-title">📌 MAKSUD MIDMAN:</div>
-      <div style="border-left:3px solid #f5c518;padding-left:14px;margin-bottom:20px">
-        <p style="font-size:14px;line-height:1.7;color:#555">Midman ialah <b>orang tengah</b> yang menjadi pihak ketiga dalam proses jual beli. Ia digunakan untuk memastikan transaksi atas talian lebih selamat, terutama melibatkan barangan digital seperti akaun game, topup, atau item dalam permainan.</p>
-      </div>
-      <div class="info-title">📌 FUNGSI UTAMA MIDMAN:</div>
-      <div class="func-item"><span>✔️</span><b>Menjamin keselamatan kedua-dua pihak – penjual dan pembeli.</b></div>
-      <div class="func-item"><span>✔️</span><b>Mengurangkan risiko ditipu atau ditinggalkan selepas pembayaran dibuat.</b></div>
-      <div class="func-item"><span>✔️</span><b>Bertindak sebagai penghubung sah – duit ditahan oleh midman sementara, dan hanya dilepaskan apabila pembeli mengesahkan barang sudah diterima.</b></div>
-      <div class="summary-box">
-        <h3>📌 RINGKASNYA:</h3>
-        <p>➡️ &nbsp; Pembeli terjamin dapat barang.<br>➡️ &nbsp; Penjual pula pasti dapat duit.</p>
-      </div>
-      <div class="green-box">
-        <p>Dengan adanya midman, urusan jual beli digital anda lebih terjamin, telus, dan bebas daripada risiko penipuan.</p>
-      </div>
-      <button class="black-btn" onclick="showPage('midman',document.getElementById('tab-midman'))">🛡️ LIHAT SENARAI MIDMAN BERDAFTAR →</button>
-      <button class="white-btn" onclick="copyGuide()">📋 SALIN TEKS PANDUAN</button>
-      <div class="warn-box" style="margin-top:16px">
-        <span style="font-size:22px">🔒</span>
-        <div><b style="font-size:14px">PERINGATAN PENTING</b><p>Sentiasa pastikan nombor telefon atau akaun Midman yang anda gunakan adalah tepat dan sah berdaftar di direktori ini sebelum memulakan sebarang pembayaran.</p></div>
-      </div>
-    </div>
+<div class="hero">
+<div class="badge">❓ PANDUAN & INFO KESELAMATAN</div>
+<h1>APA ITU MIDMAN & APA FUNGSINYA?</h1>
+<p class="subtext">Ketahui peranan orang tengah (Middleman) dalam melindungi transaksi jual beli akaun game, item digital, dan topup anda.</p>
+</div>
+<div class="info-card"><p>Bagi anda yang selalu terlibat dalam jual beli akaun game, topup, atau item digital, mungkin pernah dengar tentang <b style="color:#111">Midman (Middleman)</b>.</p></div>
+<div style="padding:0 4px">
+<div class="info-title">📌 MAKSUD MIDMAN:</div>
+<div style="border-left:3px solid #f5c518;padding-left:14px;margin-bottom:20px"><p style="font-size:14px;line-height:1.7;color:#555">Midman ialah <b>orang tengah</b> yang menjadi pihak ketiga dalam proses jual beli. Ia digunakan untuk memastikan transaksi atas talian lebih selamat, terutama melibatkan barangan digital seperti akaun game, topup, atau item dalam permainan.</p></div>
+<div class="info-title">📌 FUNGSI UTAMA MIDMAN:</div>
+<div class="func-item"><span>✔️</span><b>Menjamin keselamatan kedua-dua pihak – penjual dan pembeli.</b></div>
+<div class="func-item"><span>✔️</span><b>Mengurangkan risiko ditipu atau ditinggalkan selepas pembayaran dibuat.</b></div>
+<div class="func-item"><span>✔️</span><b>Bertindak sebagai penghubung sah – duit ditahan oleh midman sementara, dan hanya dilepaskan apabila pembeli mengesahkan barang sudah diterima.</b></div>
+<div class="summary-box"><h3>📌 RINGKASNYA:</h3><p>➡️ &nbsp; Pembeli terjamin dapat barang.<br>➡️ &nbsp; Penjual pula pasti dapat duit.</p></div>
+<div class="green-box"><p>Dengan adanya midman, urusan jual beli digital anda lebih terjamin, telus, dan bebas daripada risiko penipuan.</p></div>
+<button class="black-btn" onclick="showPage('midman',document.getElementById('tab-midman'))">🛡️ LIHAT SENARAI MIDMAN BERDAFTAR →</button>
+<button class="white-btn" onclick="copyGuide()">📋 SALIN TEKS PANDUAN</button>
+<div class="warn-box" style="margin-top:16px"><span style="font-size:22px">🔒</span><div><b style="font-size:14px">PERINGATAN PENTING</b><p>Sentiasa pastikan nombor telefon atau akaun Midman yang anda gunakan adalah tepat dan sah berdaftar di direktori ini sebelum memulakan sebarang pembayaran.</p></div></div>
+</div>
 </section>
 </main>
-
 <footer>MIDMAN TRUSTED MALAYSIA • PLATFORM KESELAMATAN & TRANSAKSI DIGITAL<br>Direktori Midman • Info Scammer • Panduan Midman ©</footer>
-
 <button class="float-btn" onclick="openNav()">+</button>
-
 <div id="navModal" class="modal" onclick="if(event.target==this) closeNav()">
-  <div class="modal-box">
-    <div class="modal-head">◎ NAVIGASI PANTAS</div>
-    <div class="nav-grid">
-      <div class="nav-item light" onclick="closeNav();showPage('midman',document.getElementById('tab-midman'))">
-        <div style="font-size:24px">🛡️</div><br><b>Direktori Midman</b><br><small>Disahkan</small>
-      </div>
-      <div class="nav-item dark" onclick="closeNav();showPage('scammer',document.getElementById('tab-scammer'))">
-        <div style="font-size:24px">🛡️ <span id="scamCount2" style="background:#ff0000;color:#fff;font-size:10px;padding:2px 6px;border-radius:10px">0</span></div><br><b>Info Scammer</b><br><small>Senarai Hitam</small>
-      </div>
-    </div>
-    <div class="nav-list">
-      <div class="nav-row" onclick="closeNav();showPage('info',document.getElementById('tab-info'))">
-        <div class="nav-icon">❓</div><div><b>Apa Itu Midman?</b><br><small>Panduan & fungsi perkhidmatan midman rasmi</small></div>
-      </div>
-      <div class="nav-row" onclick="closeNav();showPage('mlbb',document.getElementById('tab-mlbb'))">
-        <div class="nav-icon">🎮</div><div><b>Semak MLBB</b><br><small>Semak Region & Double Diamond</small></div>
-      </div>
-      <div class="nav-row" onclick="window.open('https://wa.me/601161228654','_blank')">
-        <div class="nav-icon green">🎧</div><div><b>Hubungi Bantuan Admin</b><br><small>Khidmat Pelanggan WhatsApp</small></div><span class="badge-online">ONLINE</span>
-      </div>
-    </div>
-    <div class="config-head">▦ KONFIGURASI</div>
-    <div class="config-grid">
-      <div class="config-item" onclick="toggleDark()"><span style="font-size:20px">☀️</span><div><b>Tema</b><br><small id="themeLabel">Light Mode</small></div></div>
-      <div class="config-item"><span style="font-size:20px">✨</span><div><b>Midman Trusted</b><br><small>v2.0 Rasmi</small></div></div>
-    </div>
-    <button class="close-btn" onclick="closeNav()">✕ TUTUP</button>
-  </div>
+<div class="modal-box">
+<div class="modal-head">◎ NAVIGASI PANTAS</div>
+<div class="nav-grid">
+<div class="nav-item light" onclick="closeNav();showPage('midman',document.getElementById('tab-midman'))"><div style="font-size:24px">🛡️</div><br><b>Direktori Midman</b><br><small>Disahkan</small></div>
+<div class="nav-item dark" onclick="closeNav();showPage('scammer',document.getElementById('tab-scammer'))"><div style="font-size:24px">🛡️ <span id="scamCount2" style="background:#ff0000;color:#fff;font-size:10px;padding:2px 6px;border-radius:10px">0</span></div><br><b>Info Scammer</b><br><small>Senarai Hitam</small></div>
 </div>
-
+<div class="nav-list">
+<div class="nav-row" onclick="closeNav();showPage('info',document.getElementById('tab-info'))"><div class="nav-icon">❓</div><div><b>Apa Itu Midman?</b><br><small>Panduan & fungsi perkhidmatan midman rasmi</small></div></div>
+<div class="nav-row" onclick="closeNav();showPage('mlbb',document.getElementById('tab-mlbb'))"><div class="nav-icon">🎮</div><div><b>Semak MLBB</b><br><small>Semak Region & Double Diamond</small></div></div>
+<div class="nav-row" onclick="window.open('https://wa.me/601161228654','_blank')"><div class="nav-icon green">🎧</div><div><b>Hubungi Bantuan Admin</b><br><small>Khidmat Pelanggan WhatsApp</small></div><span class="badge-online">ONLINE</span></div>
+</div>
+<div class="config-head">▦ KONFIGURASI</div>
+<div class="config-grid">
+<div class="config-item" onclick="toggleDark()"><span style="font-size:20px">☀️</span><div><b>Tema</b><br><small id="themeLabel">Light Mode</small></div></div>
+<div class="config-item"><span style="font-size:20px">✨</span><div><b>Midman Trusted</b><br><small>v2.0 Rasmi</small></div></div>
+</div>
+<button class="close-btn" onclick="closeNav()">✕ TUTUP</button>
+</div>
+</div>
 <script>
 const midmans = [
-    {name:"MIDMAN FAHIM",desc:"011-61228654 • Trusted Midman Malaysia",verified:true,initial:"F",whatsapp:"601161228654"},
-    {name:"BANI OJAN",desc:"016-2419670 • Trusted Midman Malaysia",verified:true,initial:"B",whatsapp:"60162419670"},
-    {name:"MID IPANZZ",desc:"017-5970694 • Trusted Midman Malaysia",verified:true,initial:"M",whatsapp:"60175970694"},
-    {name:"MID IPANZZ (BACKUP)",desc:"011-11652080 • Trusted Midman Malaysia",verified:true,initial:"M",whatsapp:"601111652080"},
-    {name:"MIDMAN KAITO",desc:"011-39740407 • Trusted Midman Malaysia",verified:true,initial:"K",whatsapp:"601139740407"},
-    {name:"MID KUSA",desc:"011-70130314 • Trusted Midman Malaysia",verified:true,initial:"K",whatsapp:"601170130314"},
-    {name:"MID LEX",desc:"016-6105139 • Trusted Midman Malaysia",verified:true,initial:"L",whatsapp:"60166105139"},
-    {name:"MID EPOL",desc:"013-7314591 • Trusted Midman Malaysia",verified:true,initial:"E",whatsapp:"60137314591"},
-    {name:"MID EPOL (BACKUP)",desc:"010-5491599 • Trusted Midman Malaysia",verified:true,initial:"E",whatsapp:"60105491599"},
-    {name:"MIDMAN AMIRA",desc:"011-73807270 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"601173807270"},
-    {name:"AJIMIXSTORE",desc:"018-3808201 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"60183808201"},
-    {name:"KEYZZ GAMING",desc:"011-62626736 • Trusted Midman Malaysia",verified:true,initial:"K",whatsapp:"601162626736"},
-    {name:"MIDMAN ANOS 1",desc:"011-61324347 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"601161324347"},
-    {name:"MIDMAN ANOS 2",desc:"011-51228900 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"601151228900"},
-    {name:"MIDMAN MILO (PAGI)",desc:"018-4035510 • Trusted Midman Malaysia",verified:true,initial:"M",whatsapp:"60184035510"},
-    {name:"MIDMAN MILO (MALAM)",desc:"018-7905510 • Trusted Midman Malaysia",verified:true,initial:"M",whatsapp:"60187905510"},
-    {name:"SLRMYSHOP.COM",desc:"011-36871190 • Trusted Midman Malaysia",verified:true,initial:"S",whatsapp:"601136871190"},
-    {name:"MIDMAN AASHOP",desc:"017-9981705 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"60179981705"}
+    {name:"MIDMAN FAHIM",desc:"011-61228654 • Trusted Midman Malaysia",verified:true,initial:"F",whatsapp:"601161228654",pfp:""},
+    {name:"BANI OJAN",desc:"016-2419670 • Trusted Midman Malaysia",verified:true,initial:"B",whatsapp:"60162419670",pfp:""},
+    {name:"MID IPANZZ",desc:"017-5970694 • Trusted Midman Malaysia",verified:true,initial:"M",whatsapp:"60175970694",pfp:""},
+    {name:"MID IPANZZ (BACKUP)",desc:"011-11652080 • Trusted Midman Malaysia",verified:true,initial:"M",whatsapp:"601111652080",pfp:""},
+    {name:"MIDMAN KAITO",desc:"011-39740407 • Trusted Midman Malaysia",verified:true,initial:"K",whatsapp:"601139740407",pfp:""},
+    {name:"MID KUSA",desc:"011-70130314 • Trusted Midman Malaysia",verified:true,initial:"K",whatsapp:"601170130314",pfp:""},
+    {name:"MID LEX",desc:"016-6105139 • Trusted Midman Malaysia",verified:true,initial:"L",whatsapp:"60166105139",pfp:""},
+    {name:"MID EPOL",desc:"013-7314591 • Trusted Midman Malaysia",verified:true,initial:"E",whatsapp:"60137314591",pfp:""},
+    {name:"MID EPOL (BACKUP)",desc:"010-5491599 • Trusted Midman Malaysia",verified:true,initial:"E",whatsapp:"60105491599",pfp:""},
+    {name:"MIDMAN AMIRA",desc:"011-73807270 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"601173807270",pfp:""},
+    {name:"AJIMIXSTORE",desc:"018-3808201 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"60183808201",pfp:"https://i.postimg.cc/R0bQW0RM/SAVE-20261121-010706.jpg"},
+    {name:"KEYZZ GAMING",desc:"011-62626736 • Trusted Midman Malaysia",verified:true,initial:"K",whatsapp:"601162626736",pfp:""},
+    {name:"MIDMAN ANOS 1",desc:"011-61324347 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"601161324347",pfp:""},
+    {name:"MIDMAN ANOS 2",desc:"011-51228900 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"601151228900",pfp:""},
+    {name:"MIDMAN MILO (PAGI)",desc:"018-4035510 • Trusted Midman Malaysia",verified:true,initial:"M",whatsapp:"60184035510",pfp:""},
+    {name:"MIDMAN MILO (MALAM)",desc:"018-7905510 • Trusted Midman Malaysia",verified:true,initial:"M",whatsapp:"60187905510",pfp:""},
+    {name:"SLRMYSHOP.COM",desc:"011-36871190 • Trusted Midman Malaysia",verified:true,initial:"S",whatsapp:"601136871190",pfp:""},
+    {name:"MIDMAN AASHOP",desc:"017-9981705 • Trusted Midman Malaysia",verified:true,initial:"A",whatsapp:"60179981705",pfp:""}
 ];
 const scammers = [{name:"Contoh Scammer",phone:"0100000",bank:"Tidak dinyatakan",status:"Dalam siasatan"}];
 function loadMidman(list = midmans){
     const container = document.getElementById("midmanList");
     container.innerHTML = "";
     list.forEach((p)=>{
-        container.innerHTML += `<div class="card"><div class="avatar">${p.initial}</div><div class="card-info"><div class="card-name">${p.name} ${p.verified?`<span class="verified">✓</span>`:""}</div><div class="card-desc">${p.desc}</div><div class="card-buttons"><button class="contact-btn" onclick="window.open('https://wa.me/${p.whatsapp}')">HUBUNGI</button><button class="more-btn">⋮</button></div></div></div>`;
+        container.innerHTML += `<div class="card"><div class="avatar">${p.pfp ? `<img src="${p.pfp}">` : p.initial}</div><div class="card-info"><div class="card-name">${p.name} ${p.verified?`<span class="verified">✓</span>`:""}</div><div class="card-desc">${p.desc}</div><div class="card-buttons"><button class="contact-btn" onclick="window.open('https://wa.me/${p.whatsapp}')">HUBUNGI</button><button class="more-btn">⋮</button></div></div></div>`;
     });
     document.getElementById("totalCount").innerText = `(${midmans.length})`;
     document.getElementById("verifiedCount").innerText = `(${midmans.filter(m=>m.verified).length})`;
@@ -287,14 +249,4 @@ function loadScammer(){
 }
 function searchMidman(){loadMidman(midmans.filter(m => m.name.toLowerCase().includes(document.getElementById("midmanSearch").value.toLowerCase())))}
 function filterMidman(type, btn){document.querySelectorAll(".category").forEach(b=>b.classList.remove("active"));btn.classList.add("active");loadMidman(type==="verified"?midmans.filter(m=>m.verified):midmans)}
-function showPage(page, btn){document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));if(btn) btn.classList.add("active");document.getElementById("midmanPage").style.display = page==="midman"?"block":"none";document.getElementById("scammerPage").style.display = page==="scammer"?"block":"none";document.getElementById("mlbbPage").style.display = page==="mlbb"?"block":"none";document.getElementById("infoPage").style.display = page==="info"?"block":"none";if(page==="scammer") loadScammer();window.scrollTo(0,0)}
-function toggleDark(){document.body.classList.toggle("dark");const l=document.getElementById("themeLabel"); if(l) l.innerText=document.body.classList.contains("dark")?"Dark Mode":"Light Mode"}
-function checkScammer(){const val=document.getElementById("scammerSearch").value;const res=document.getElementById("scammerResult");const f=scammers.find(s=>s.phone.includes(val));res.style.display="block";res.innerHTML=f?`<b>🚨 DITEMUI</b><br>${f.name}<br>${f.phone}`:`<b>✅ BERSIH</b><br>Tiada rekod`;}
-function checkMLBB(){document.getElementById("mlbbResult").style.display="block";document.getElementById("mlbbResult").innerHTML="ID: "+document.getElementById("mlbbId").value+"<br><small>API belum sambung</small>"}
-function openNav(){document.getElementById("navModal").classList.add("open")}
-function closeNav(){document.getElementById("navModal").classList.remove("open")}
-function copyGuide(){const t="APA ITU MIDMAN? Midman ialah orang tengah yang menjadi pihak ketiga dalam proses jual beli. Fungsi: Menjamin keselamatan kedua-dua pihak, mengurangkan risiko ditipu, duit ditahan oleh midman sementara dan hanya dilepaskan apabila pembeli mengesahkan barang sudah diterima. Ringkasnya: Pembeli terjamin dapat barang, Penjual pula pasti dapat duit.";navigator.clipboard.writeText(t).then(()=>alert("Teks panduan dah disalin!"))}
-loadMidman();loadScammer();
-</script>
-</body>
-</html>
+function showPage(page, btn){document.querySe
