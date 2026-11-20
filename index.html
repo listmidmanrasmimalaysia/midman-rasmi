@@ -16,13 +16,14 @@ body.dark .header{background:#111;border-color:#222}
 body.dark .icon-btn{background:#111;border-color:#333}
 .tabs{height:56px;border-bottom:1px solid #eee;display:flex;align-items:center;gap:6px;padding:6px 12px;background:#fff;position:sticky;top:70px;z-index:40;overflow-x:auto}
 body.dark .tabs{background:#111;border-color:#222}
-.tab{height:44px;padding:0 18px;border:0;background:#f5f5f5;border-radius:12px;font-size:14px;font-weight:800;white-space:nowrap;color:#555}
+.tab{flex:1;height:44px;padding:0 10px;border:0;background:#f5f5f5;border-radius:12px;font-size:13px;font-weight:800;white-space:nowrap;color:#555}
 .tab.active{background:#000;color:#fff}
-main{max-width:680px;margin:auto;padding:40px 20px 120px}
+body.dark .tab{background:#222;color:#aaa}body.dark .tab.active{background:#fff;color:#000}
+main{max-width:680px;margin:auto;padding:30px 20px 120px}
 .hero{text-align:center;margin-bottom:30px}
 .badge{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;background:#000;color:#fff;font-weight:800;font-size:12px;margin-bottom:16px}
 .hero h1{font-size:28px;line-height:1.2;font-weight:900;letter-spacing:-1px}
-.subtext{margin-top:10px;color:#777;font-size:14px}
+.subtext{margin-top:10px;color:#777;font-size:14px;line-height:1.5}
 .search-box{height:56px;background:#f6f6f6;border:1px solid #e0e0e0;border-radius:16px;display:flex;align-items:center;padding:0 16px;margin-bottom:20px}
 .search-icon{font-size:20px;margin-right:10px;color:#777}
 .search-box input{width:100%;border:0;outline:0;background:transparent;font-size:15px;color:#111}
@@ -33,40 +34,92 @@ main{max-width:680px;margin:auto;padding:40px 20px 120px}
 body.dark .card{background:#111;border-color:#222}
 .avatar{width:60px;height:60px;border-radius:14px;background:#000;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:900}
 .card-info{min-width:0;flex:1}
-.card-name{font-size:16px;font-weight:900;display:flex;align-items:center;gap:5px}
-.verified{width:16px;height:16px;border-radius:50%;background:#000;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:10px}
+.card-name{font-size:15px;font-weight:900;display:flex;align-items:center;gap:5px}
+.verified{width:16px;height:16px;border-radius:50%;background:#000;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
 .card-desc{color:#777;font-size:12px;margin:4px 0 10px}
 .card-buttons{display:flex;gap:8px}
 .contact-btn{flex:1;height:40px;border:0;border-radius:12px;background:#000;color:#fff;font-size:14px;font-weight:800}
 .more-btn{width:40px;height:40px;border-radius:12px;border:1px solid #ddd;background:#fff;font-size:18px}
-.float-btn{position:fixed;right:20px;bottom:25px;width:56px;height:56px;border:0;border-radius:16px;background:#000;color:#fff;font-size:32px;z-index:100;box-shadow:0 4px 12px #0003}
-.scammer-section,.mlbb-section{display:none}
+.float-btn{position:fixed;right:20px;bottom:25px;width:56px;height:56px;border:0;border-radius:16px;background:#000;color:#fff;font-size:32px;z-index:100;box-shadow:0 4px 12px #0003;cursor:pointer}
+.scammer-section,.info-section,.mlbb-section{display:none}
 .scammer-card{border:1px solid #ddd;border-radius:20px;padding:16px;background:#fff;margin-bottom:14px}
 body.dark .scammer-card{background:#111;border-color:#222}
 .checker{border:1px solid #ddd;border-radius:20px;padding:20px;background:#fff}
 body.dark .checker{background:#111;border-color:#222}
-.check-input{width:100%;height:48px;border:1px solid #ddd;border-radius:12px;padding:0 14px;font-size:15px;outline:none;background:transparent}
+.check-input{width:100%;height:48px;border:1px solid #ddd;border-radius:12px;padding:0 14px;font-size:15px;outline:none;background:transparent;color:inherit}
 .search-btn{width:100%;height:48px;border:0;border-radius:12px;background:#000;color:#fff;font-size:15px;font-weight:800;margin-top:12px}
-.result{display:none;margin-top:15px;padding:15px;border-radius:12px;background:#f2f2f2;font-size:14px}
+.result{display:none;margin-top:15px;padding:15px;border-radius:12px;background:#f2f2f2;font-size:14px;line-height:1.5}
 body.dark .result{background:#222}
-.info-box{background:#f8f8f8;border:1px solid #e5e5e5;border-radius:20px;padding:20px;margin-top:24px;text-align:left}
-body.dark .info-box{background:#111;border-color:#222}
+/* INFO PAGE */
+.info-card{border:1px solid #e5e5e5;border-radius:20px;padding:20px;background:#fff;margin-bottom:16px}
+body.dark .info-card{background:#111;border-color:#222}
+.info-card p{font-size:14px;line-height:1.7;color:#555}
+body.dark .info-card p{color:#aaa}
+.info-title{font-size:16px;font-weight:900;margin-bottom:12px;display:flex;gap:8px;align-items:center}
+.func-item{display:flex;gap:12px;background:#f8f8f8;border-radius:16px;padding:16px;margin-bottom:10px}
+body.dark .func-item{background:#1a1a1a}
+.func-item span{font-size:20px}
+.func-item b{font-size:14px;line-height:1.5}
+.summary-box{background:#000;color:#fff;border-radius:20px;padding:20px;margin-bottom:16px}
+.summary-box h3{color:#f5c518;margin-bottom:12px}
+.summary-box p{color:#fff;font-size:14px;line-height:1.7}
+.green-box{background:#e6f7ef;border-radius:16px;padding:16px;margin-bottom:16px}
+.green-box p{color:#1a5c3a;font-size:14px;line-height:1.6}
+body.dark .green-box{background:#123322}.green-box p{color:#a7e8c5}
+.warn-box{display:flex;gap:12px;background:#fff8e6;border-radius:16px;padding:16px;border:1px solid #ffe8a3}
+body.dark .warn-box{background:#221a00;border-color:#444}
+.warn-box p{font-size:13px;line-height:1.6;color:#555}
+.black-btn{width:100%;height:52px;border:0;border-radius:14px;background:#000;color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px;cursor:pointer}
+.white-btn{width:100%;height:52px;border:1px solid #ddd;border-radius:14px;background:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}
+body.dark .white-btn{background:#111;color:#fff;border-color:#333}
+/* NAVIGASI PANTAS MODAL */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;align-items:flex-end;justify-content:center;padding:16px}
+.modal.open{display:flex}
+.modal-box{background:#fff;width:100%;max-width:500px;border-radius:24px;padding:20px;max-height:85vh;overflow:auto}
+body.dark .modal-box{background:#111}
+.modal-head{display:flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:1px;color:#555;margin-bottom:16px}
+.nav-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.nav-item{border-radius:16px;padding:18px 12px;text-align:center;cursor:pointer}
+.nav-item.light{background:#f5f5f5}
+.nav-item.dark{background:#000;color:#fff}
+.nav-item b{font-size:14px}
+.nav-item small{font-size:11px;color:#888}
+.nav-item.dark small{color:#aaa}
+.nav-list{border:1px solid #eee;border-radius:16px;overflow:hidden;margin-bottom:16px}
+body.dark .nav-list{border-color:#222}
+.nav-row{display:flex;align-items:center;gap:12px;padding:16px;border-bottom:1px solid #eee;cursor:pointer}
+body.dark .nav-row{border-color:#222}
+.nav-row:last-child{border-bottom:0}
+.nav-icon{width:44px;height:44px;border-radius:12px;background:#fff7e0;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.nav-icon.green{background:#e6f7ef}
+.nav-row b{font-size:14px}
+.nav-row small{font-size:12px;color:#888}
+.badge-online{background:#e6f7ef;color:#1a8a4a;font-size:11px;font-weight:800;padding:4px 10px;border-radius:20px;margin-left:auto}
+.config-head{font-weight:800;font-size:12px;letter-spacing:1px;color:#555;margin-bottom:10px}
+.config-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.config-item{background:#f8f8f8;border-radius:14px;padding:14px;display:flex;gap:10px;align-items:center;cursor:pointer}
+body.dark .config-item{background:#1a1a1a}
+.config-item b{font-size:13px}
+.config-item small{font-size:11px;color:#888}
+.close-btn{width:100%;height:48px;border:0;border-radius:12px;background:#000;color:#fff;font-weight:800;margin-top:16px}
+footer{text-align:center;padding:20px;font-size:11px;color:#999;line-height:1.6}
 </style>
 </head>
 <body>
 
 <header class="header">
-    <div class="logo">MIDMAN TRUSTED MALAYSIA</div>
+    <div class="logo">MIDMAN TRUSTED<br style="display:none">MALAYSIA</div>
     <button class="icon-btn" onclick="toggleDark()">🌙</button>
 </header>
 
 <nav class="tabs">
-    <button class="tab active" onclick="showPage('midman',this)">🛡️ MIDMAN</button>
-    <button class="tab" onclick="showPage('scammer',this)">🚨 SCAMMER <span id="scamCount">0</span></button>
-    <button class="tab" onclick="showPage('mlbb',this)">🎮 MLBB</button>
+    <button class="tab active" id="tab-midman" onclick="showPage('midman',this)">🛡️ MIDMAN</button>
+    <button class="tab" id="tab-scammer" onclick="showPage('scammer',this)">🛡️ SCAMMER <span id="scamCount">0</span></button>
+    <button class="tab" id="tab-info" onclick="showPage('info',this)">❓ INFO</button>
 </nav>
 
 <main>
+<!-- MIDMAN PAGE -->
 <section id="midmanPage">
     <div class="hero">
         <div class="badge">🛡️ DIREKTORI DIPERCAYAI</div>
@@ -83,27 +136,30 @@ body.dark .info-box{background:#111;border-color:#222}
     </div>
     <div id="midmanList"></div>
 
-    <div class="info-box">
-      <h3 style="font-size:16px;margin-bottom:10px">ℹ️ INFO MIDMAN</h3>
-      <p style="font-size:13px;line-height:1.7;color:#777">
-      <b style="color:#111">1. Buyer bayar dekat Midman</b><br>
-      Buyer transfer duit dekat Midman dulu, bukan dekat Seller.<br><br>
-      <b style="color:#111">2. Seller bagi barang / akaun</b><br>
-      Lepas Midman confirm duit masuk, Seller baru bagi barang.<br><br>
-      <b style="color:#111">3. Buyer confirm dapat</b><br>
-      Buyer check barang ok, bagitau Midman.<br><br>
-      <b style="color:#111">4. Midman release duit dekat Seller</b><br>
-      Tolak fee midman, baki Midman transfer dekat Seller.<br><br>
-      ⚠️ <b>Jangan deal luar Midman.</b> Kalau kena scam sebab deal direct, kami tak tanggung.<br><br>
-      📞 <b>Sentiasa semak nombor dalam website ni sahaja.</b> Scammer suka menyamar jadi Midman.
-      </p>
+    <div class="info-card">
+      <h3 class="info-title">ℹ️ INFO MIDMAN</h3>
+      <p><b style="color:#111">1. Buyer bayar dekat Midman</b><br>Buyer transfer duit dekat Midman dulu, bukan dekat Seller.<br><br>
+      <b style="color:#111">2. Seller bagi barang / akaun</b><br>Lepas Midman confirm duit masuk, Seller baru bagi barang.<br><br>
+      <b style="color:#111">3. Buyer confirm dapat</b><br>Buyer check barang ok, bagitau Midman.<br><br>
+      <b style="color:#111">4. Midman release duit dekat Seller</b><br>Tolak fee midman, baki Midman transfer dekat Seller.<br><br>
+      ⚠️ <b>Jangan deal luar Midman.</b> Kalau kena scam sebab deal direct, kami tak tanggung.</p>
+    </div>
+
+    <div class="info-card">
+      <h3 class="info-title">🎮 SEMAK MLBB</h3>
+      <p style="margin-bottom:12px">Semak Region & Double Diamond akaun MLBB.</p>
+      <input id="mlbbId" class="check-input" placeholder="Contoh: 12345678 (2170)">
+      <button class="search-btn" onclick="checkMLBB()">🔍 SEMAK</button>
+      <div id="mlbbResult" class="result"></div>
     </div>
 </section>
 
+<!-- SCAMMER PAGE -->
 <section id="scammerPage" class="scammer-section">
     <div class="hero">
         <div class="badge" style="background:#ed101d">🚨 PENGKALAN DATA</div>
         <h1>SENARAI HITAM<br>SCAMMER</h1>
+        <p class="subtext">Semak nombor / bank sebelum deal. Jangan transfer kalau nama ada dalam senarai ni.</p>
     </div>
     <div class="checker">
         <h2 style="font-size:18px;margin-bottom:8px">🔍 SEMAK NOMBOR / BANK</h2>
@@ -115,21 +171,82 @@ body.dark .info-box{background:#111;border-color:#222}
     <div id="scammerList"></div>
 </section>
 
-<section id="mlbbPage" class="mlbb-section">
+<!-- INFO PAGE - MACAM DALAM GAMBAR -->
+<section id="infoPage" class="info-section">
     <div class="hero">
-        <div class="badge">🎮 SEMAK MLBB</div>
-        <h1>SEMAK REGION<br>& DOUBLE DIAMOND</h1>
+        <div class="badge">❓ PANDUAN & INFO KESELAMATAN</div>
+        <h1>APA ITU MIDMAN & APA FUNGSINYA?</h1>
+        <p class="subtext">Ketahui peranan orang tengah (Middleman) dalam melindungi transaksi jual beli akaun game, item digital, dan topup anda.</p>
     </div>
-    <div class="checker">
-        <h2 style="font-size:18px;margin-bottom:8px">🎮 SEMAK AKAUN MLBB</h2>
-        <input id="mlbbId" class="check-input" placeholder="Contoh: 12345678 (2170)">
-        <button class="search-btn" onclick="checkMLBB()">🔍 SEMAK</button>
-        <div id="mlbbResult" class="result"></div>
+
+    <div class="info-card">
+      <p>Bagi anda yang selalu terlibat dalam jual beli akaun game, topup, atau item digital, mungkin pernah dengar tentang <b style="color:#111">Midman (Middleman)</b>.</p>
+    </div>
+
+    <div style="padding:0 4px">
+      <div class="info-title">📌 MAKSUD MIDMAN:</div>
+      <div style="border-left:3px solid #f5c518;padding-left:14px;margin-bottom:20px">
+        <p style="font-size:14px;line-height:1.7;color:#555">Midman ialah <b>orang tengah</b> yang menjadi pihak ketiga dalam proses jual beli. Ia digunakan untuk memastikan transaksi atas talian lebih selamat, terutama melibatkan barangan digital seperti akaun game, topup, atau item dalam permainan.</p>
+      </div>
+
+      <div class="info-title">📌 FUNGSI UTAMA MIDMAN:</div>
+      <div class="func-item"><span>✔️</span><b>Menjamin keselamatan kedua-dua pihak – penjual dan pembeli.</b></div>
+      <div class="func-item"><span>✔️</span><b>Mengurangkan risiko ditipu atau ditinggalkan selepas pembayaran dibuat.</b></div>
+      <div class="func-item"><span>✔️</span><b>Bertindak sebagai penghubung sah – duit ditahan oleh midman sementara, dan hanya dilepaskan apabila pembeli mengesahkan barang sudah diterima.</b></div>
+
+      <div class="summary-box">
+        <h3>📌 RINGKASNYA:</h3>
+        <p>➡️ &nbsp; Pembeli terjamin dapat barang.<br>➡️ &nbsp; Penjual pula pasti dapat duit.</p>
+      </div>
+
+      <div class="green-box">
+        <p>Dengan adanya midman, urusan jual beli digital anda lebih terjamin, telus, dan bebas daripada risiko penipuan.</p>
+      </div>
+
+      <button class="black-btn" onclick="showPage('midman',document.getElementById('tab-midman'))">🛡️ LIHAT SENARAI MIDMAN BERDAFTAR →</button>
+      <button class="white-btn" onclick="copyGuide()">📋 SALIN TEKS PANDUAN</button>
+
+      <div class="warn-box" style="margin-top:16px">
+        <span style="font-size:22px">🔒</span>
+        <div><b style="font-size:14px">PERINGATAN PENTING</b><p>Sentiasa pastikan nombor telefon atau akaun Midman yang anda gunakan adalah tepat dan sah berdaftar di direktori ini sebelum memulakan sebarang pembayaran.</p></div>
+      </div>
     </div>
 </section>
 </main>
 
-<button class="float-btn" onclick="window.open('https://wa.me/601161228654')">+</button>
+<footer>MIDMAN TRUSTED MALAYSIA • PLATFORM KESELAMATAN & TRANSAKSI DIGITAL<br>Direktori Midman • Info Scammer • Panduan Midman ©</footer>
+
+<!-- BUTANG + -->
+<button class="float-btn" onclick="openNav()">+</button>
+
+<!-- NAVIGASI PANTAS MODAL -->
+<div id="navModal" class="modal" onclick="if(event.target==this) closeNav()">
+  <div class="modal-box">
+    <div class="modal-head">◎ NAVIGASI PANTAS</div>
+    <div class="nav-grid">
+      <div class="nav-item light" onclick="closeNav();showPage('midman',document.getElementById('tab-midman'))">
+        <div style="font-size:24px">🛡️</div><br><b>Direktori Midman</b><br><small>Disahkan</small>
+      </div>
+      <div class="nav-item dark" onclick="closeNav();showPage('scammer',document.getElementById('tab-scammer'))">
+        <div style="font-size:24px;color:#ff4444">🛡️ <span id="scamCount2" style="background:#ff0000;color:#fff;font-size:10px;padding:2px 6px;border-radius:10px">0</span></div><br><b>Info Scammer</b><br><small>Senarai Hitam</small>
+      </div>
+    </div>
+    <div class="nav-list">
+      <div class="nav-row" onclick="closeNav();showPage('info',document.getElementById('tab-info'))">
+        <div class="nav-icon">❓</div><div><b>Apa Itu Midman?</b><br><small>Panduan & fungsi perkhidmatan midman rasmi</small></div>
+      </div>
+      <div class="nav-row" onclick="window.open('https://wa.me/601161228654','_blank')">
+        <div class="nav-icon green">🎧</div><div><b>Hubungi Bantuan Admin</b><br><small>Khidmat Pelanggan WhatsApp</small></div><span class="badge-online">ONLINE</span>
+      </div>
+    </div>
+    <div class="config-head">▦ KONFIGURASI</div>
+    <div class="config-grid">
+      <div class="config-item" onclick="toggleDark()"><span style="font-size:20px">☀️</span><div><b>Tema</b><br><small id="themeLabel">Light Mode</small></div></div>
+      <div class="config-item"><span style="font-size:20px">✨</span><div><b>Midman Trusted</b><br><small>v2.0 Rasmi</small></div></div>
+    </div>
+    <button class="close-btn" onclick="closeNav()">✕ TUTUP</button>
+  </div>
+</div>
 
 <script>
 const midmans = [
@@ -167,14 +284,7 @@ function loadScammer(){
     container.innerHTML = "";
     scammers.forEach(s=>{container.innerHTML += `<div class="scammer-card"><div style="font-weight:900">🚨 ${s.name}</div><div style="font-size:13px;color:#666;margin-top:8px">Phone: ${s.phone}<br>Bank: ${s.bank}<br>Status: ${s.status}</div></div>`;});
     document.getElementById("scamCount").innerText = scammers.length;
+    const c2=document.getElementById("scamCount2"); if(c2) c2.innerText=scammers.length;
 }
 function searchMidman(){loadMidman(midmans.filter(m => m.name.toLowerCase().includes(document.getElementById("midmanSearch").value.toLowerCase())))}
-function filterMidman(type, btn){document.querySelectorAll(".category").forEach(b=>b.classList.remove("active"));btn.classList.add("active");loadMidman(type==="verified"?midmans.filter(m=>m.verified):midmans)}
-function showPage(page, btn){document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));btn.classList.add("active");document.getElementById("midmanPage").style.display = page==="midman"?"block":"none";document.getElementById("scammerPage").style.display = page==="scammer"?"block":"none";document.getElementById("mlbbPage").style.display = page==="mlbb"?"block":"none";if(page==="scammer") loadScammer()}
-function toggleDark(){document.body.classList.toggle("dark")}
-function checkScammer(){const val=document.getElementById("scammerSearch").value;const res=document.getElementById("scammerResult");const f=scammers.find(s=>s.phone.includes(val));res.style.display="block";res.innerHTML=f?`<b>🚨 DITEMUI</b><br>${f.name}<br>${f.phone}`:`<b>✅ BERSIH</b><br>Tiada rekod`;}
-function checkMLBB(){document.getElementById("mlbbResult").style.display="block";document.getElementById("mlbbResult").innerHTML="ID: "+document.getElementById("mlbbId").value+"<br><small>API belum sambung</small>"}
-loadMidman();
-</script>
-</body>
-</html>
+function filterMidman(type, btn){document.querySelectorAll(".category").forEach(b=>b.classList.remove("active"));btn.classList.add("active");loadMidman(type==="verified"
